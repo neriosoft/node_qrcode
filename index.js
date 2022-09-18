@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require("mongoose");
+const helmet = require('helmet');
 
 
 //configure mongoose
@@ -24,6 +25,7 @@ const app = express();
 //middleware  
 app.use(bodyParser.json());  
 app.use(bodyParser.urlencoded({extended:false})); 
+app.use(helmet())
 
 //assign port  
 var port  = process.env.PORT || 3000;    
